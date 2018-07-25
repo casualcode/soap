@@ -5,8 +5,8 @@ import (
 )
 
 type Envelope struct {
-	XMLName      xml.Name `xml:"soapenv:Envelope"`
-	XmlnsSoapenv string   `xml:"xmlns:soapenv,attr"`
+	XMLName      xml.Name `xml:"SOAP-ENV:Envelope"`
+	XmlnsSoapenv string   `xml:"xmlns:SOAP-ENV,attr"`
 	XmlnsUniv    string   `xml:"xmlns:univ,attr"`
 
 	Header *Header
@@ -14,17 +14,17 @@ type Envelope struct {
 }
 
 type Body struct {
-	XMLName xml.Name `xml:"soapenv:Body"`
+	XMLName xml.Name `xml:"SOAP-ENV:Body"`
 	Payload interface{}
 }
 
 type Header struct {
-	XMLName      xml.Name `xml:"soapenv:Header"`
+	XMLName      xml.Name `xml:"SOAP-ENV:Header"`
 	WsseSecurity *WsseSecurity
 }
 
 type WsseSecurity struct {
-	MustUnderstand string   `xml:"soapenv:mustUnderstand,attr"`
+	MustUnderstand string   `xml:"SOAP-ENV:mustUnderstand,attr"`
 	XMLName        xml.Name `xml:"wsse:Security"`
 	XmlnsWsse      string   `xml:"xmlns:wsse,attr"`
 	XmlnsWsu       string   `xml:"xmlns:wsu,attr"`
